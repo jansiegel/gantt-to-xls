@@ -26685,13 +26685,13 @@ class Exporter {
       return workbook.outputAsync();
     }).then(function (blob) {
       if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-        window.navigator.msSaveOrOpenBlob(blob, "out.xlsx");
+        window.navigator.msSaveOrOpenBlob(blob, "sample.xlsx");
       } else {
         let url = window.URL.createObjectURL(blob);
         let a = document.createElement("a");
         document.body.appendChild(a);
         a.href = url;
-        a.download = "out.xlsx";
+        a.download = "sample.xlsx";
         a.click();
         window.URL.revokeObjectURL(url);
         document.body.removeChild(a);
