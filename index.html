@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handsontable's Gantt Chart to XLS</title>
+  <script type="text/javascript" src="./dist/bundle.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+    }
+
+    #upper {
+      position: relative;
+      height: 300px;
+    }
+
+    #export {
+      position: absolute;
+      left: 30px;
+      top: 300px;
+      padding: 15px;
+    }
+
+    #table {
+      position: absolute;
+      left: 15px;
+      top: 60px;
+    }
+
+    #table table {
+      border-collapse: collapse;
+    }
+
+    #table table td {
+      border: 1px solid #c4c4c4;
+      padding: 5px 15px 5px 15px;
+    }
+
+    #gantt {
+      position: absolute;
+      left: 250px;
+      top: 15px;
+    }
+  </style>
+</head>
+<div id="upper">
+  <div id="table">
+    <table>
+      <tr>
+        <td>Sample data 1</td>
+        <td>Sample 1</td>
+      </tr>
+      <tr>
+        <td>Sample data 2</td>
+        <td>Sample 2</td>
+      </tr>
+      <tr>
+        <td>Sample data 3</td>
+        <td>Sample 3</td>
+      </tr>
+      <tr>
+        <td>Sample data 4</td>
+        <td>Sample 4</td>
+      </tr>
+    </table>
+  </div>
+  <div id="gantt"></div>
+</div>
+<button id="export" type="button">Export to Excel</button>
+<script>
+  var ganttExport = new GanttExport(document.getElementById('gantt'));
+  var exporter = new Exporter(ganttExport.hot);
+
+  document.getElementById('export').addEventListener('click', function() {exporter.generateXLS()});
+</script>
+</body>
+</html>
